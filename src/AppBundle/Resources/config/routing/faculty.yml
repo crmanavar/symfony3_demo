@@ -1,0 +1,24 @@
+faculty_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Faculty:index" }
+    methods:  GET
+
+faculty_show:
+    path:     /show/{id}
+    defaults: { _controller: "AppBundle:Faculty:show" }
+    methods:  GET
+
+faculty_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Faculty:new" }
+    methods:  [GET, POST]
+
+faculty_edit:
+    path:     /edit/{id}
+    defaults: { _controller: "AppBundle:Faculty:edit" }
+    methods:  [GET, POST]
+
+faculty_delete:
+    path:     /delete/{id}
+    defaults: { _controller: "AppBundle:Faculty:delete" }
+    methods:  GET

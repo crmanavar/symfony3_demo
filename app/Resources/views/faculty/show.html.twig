@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title %}Faculty Show{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            <i class="fa fa-user fa-fw"></i>Faculty
+            <a href="{{ path('faculty_index') }}"><button class="btn btn-warning btn-sm pull-right" >Back</button></a>
+        </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+<div class="col-lg-12 sp-list">
+    <div class="row" id="scroll">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                View Faculty Details
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="scroll">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-responsive">
+                            <tr>
+                                <td width="15%">First Name</td>
+                                <td>{{ faculty.firstName }}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Last Name</td>
+                                <td>{{ faculty.lastName }}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Joining Date</td>
+                                <td>{{ faculty.dateOfJoining | date("d-m-Y")  }}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Phone Number</td>
+                                <td>{{ faculty.phoneNumber }}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Email</td>
+                                <td>{{ faculty.email }}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Designation</td>
+                                <td>{{ faculty.designation }}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Created</td>
+                                <td>{% if faculty.created %}{{ faculty.created|time_ago()|capitalize }}{% else %}{{ "-" }}{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">Modified</td>
+                                <td>{% if faculty.modified %}{{ faculty.modified|time_ago()|capitalize }}{% else %}{{ "-" }}{% endif %}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                    <!--paginations-->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+{% endblock %}

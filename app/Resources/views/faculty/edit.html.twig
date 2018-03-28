@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}Faculty Edit{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            <i class="fa fa-user fa-fw"></i>Faculty
+            <a href="{{ path('faculty_index') }}"><button class="btn btn-warning btn-sm pull-right" >Back</button></a>
+        </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="col-lg-12 sp-list">
+    <div class="row" id="scroll">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Edit Faculty
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="col-md-6 col-md-offset-3">
+                    {{ form_start(edit_form) }}
+
+                    {{ form_widget(edit_form) }}
+
+                    <button type="submit" class="btn btn-primary">Save Faculty</button>
+                    <a href="{{ path('faculty_index') }}" class="removeimage btn btn-warning">Cancel</a>
+
+                    {{ form_end(edit_form) }}
+
+                    <div>
+                        {#{ form_start(delete_form) }}
+                            <button type="submit" class="btn btn-default">Delete</button>
+                        {{ form_end(delete_form) }#}
+                        <div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
